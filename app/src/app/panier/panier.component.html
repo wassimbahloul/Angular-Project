@@ -1,0 +1,96 @@
+<app-layout1></app-layout1>
+<html><table class="table custom-table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price per Kilogram</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of cartItems; let i = index">
+      <td>{{ product.name }}</td>
+      <td>{{ product.prix_kilo }}</td>
+      <td>
+        <input type="number" value="0" class="form-control" id="quantity{{ i }}" (change)="updateTotal(product)">
+      </td>
+      <td>{{ onQuantityChange(product, i) }} dinars</td>
+    </tr>
+    <button  (click)="updatedata()" (click)="carteitemsfupdate()" class="btn btn-outline-dark mt-auto" routerLink="/facture">facturer</button>
+  </tbody>
+</table>
+</html>
+<style>
+  /* panier.component.css */
+  .table[_ngcontent-ng-c461476385] td[_ngcontent-ng-c461476385] {
+    border: 1px solid #dee2e6;
+    padding: 8px;
+    color: black;
+}
+  .mat-drawer-container {
+    position: relative;
+    z-index: 1;
+    color: #070707;
+    background-color: var(--mat-sidenav-content-background-color);
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    overflow: hidden;
+}
+
+
+.table[_ngcontent-ng-c3768359207] th[_ngcontent-ng-c3768359207] {
+    background-color: #355e87;
+    color: #fff;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #011c33;
+
+}
+
+/* Style pour le tableau */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Style pour l'en-tête du tableau */
+.table th {
+  background-color: #343a40;
+  color: #fff;
+  padding: 8px;
+  text-align: left;
+  border: #070707;
+}
+
+/* Style pour les cellules du tableau */
+.table td {
+  border: 1px solid #dee2e6;
+  padding: 8px;
+}
+
+/* Style pour les lignes impaires du tableau */
+.table tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+/* Style pour les entrées numériques */
+.table input[type="number"] {
+  width: 60px;
+  text-align: center;
+}
+
+/* Style pour le total */
+.total {
+  font-weight: bold;
+}
+html {
+    --mat-sidenav-container-divider-color: rgba(255, 255, 255, 0.12);
+    --mat-sidenav-container-background-color: #b8a4a4;
+    --mat-sidenav-container-text-color: white;
+    --mat-sidenav-content-background-color: #6e88a4;
+    --mat-sidenav-content-text-color: rgb(112, 117, 137);
+    --mat-sidenav-scrim-color: rgba(189, 189, 189, 0.6);
+}
+</style>

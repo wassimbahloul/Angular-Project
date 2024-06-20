@@ -1,0 +1,15 @@
+const mongoose = require('mongoose');
+
+// Schéma de la facture
+const FactureSchema = new mongoose.Schema({
+    employeeId: { type: mongoose.Schema.Types.ObjectId, ref: 'Employee' }, // Clé étrangère vers l'employé
+    // Liste des produits (clés étrangères vers les produits)
+    totalAmount: { type: Number, required: true }, // Somme totale de la facture
+    totalWeight: { type: Number, required: true } // Poids total des produits dans la facture
+});
+
+// Modèle de la facture basé sur le schéma
+const Facture = mongoose.model('Facture', FactureSchema);
+
+// Exporter le modèle de facture
+module.exports = Facture;

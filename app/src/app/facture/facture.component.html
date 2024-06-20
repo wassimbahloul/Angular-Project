@@ -1,0 +1,86 @@
+<app-layout1></app-layout1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facture</title>
+  <style>
+    /* Styles CSS pour la facture */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #7a8893;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    th[_ngcontent-ng-c810748086], td[_ngcontent-ng-c810748086] {
+    padding: 10px;
+    border-bottom: 1px solid #01477d;
+    text-align: left;
+    color: midnightblue;
+}
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom:1px solid #3d6b8f;
+      text-align: left;
+      color: #01477d;
+      
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tfoot td {
+      font-weight: bold;
+    }
+    .text-right {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Facture</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prix par Kilogramme</th>
+          <th>Quantité</th>
+          <th>Prix Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of cartItemsf">
+          <td>{{ product.name }}</td>
+          <td>{{ product.prix_kilo | currency:'DZD' }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.quantity * product.prix_kilo | currency:'DZD' }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" class="text-right">Total :</td>
+          <td>{{ totalPrice | currency:'DZD' }}</td>
+        </tr>
+      </tfoot>
+    </table>
+    <button class="btn btn-outline-dark mt-auto" (click)="saveFacture()">Enregistrer facture</button>
+
+  </div>
+</body>
+</html>

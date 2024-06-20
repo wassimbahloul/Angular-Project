@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion</title>
+  <style>
+    /* Styles */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 250px;
+    }
+
+    .title {
+      font-size: 50px;
+      font-weight: bold;
+      color: #24e437;
+      font-family: "Arial", sans-serif;
+    }
+
+    .description {
+      font-size: 30px;
+      color: #000000;
+    }
+
+    .right-container {
+      flex-grow: 1;
+      max-width: 400px;
+      margin: 150px auto; /* Adjust top and bottom margins for vertical positioning */
+      padding: 30px;
+      border: 1px solid #dddfe2;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-input {
+      width: 94%;
+      padding: 10px;
+      border: 1px solid #dddfe2;
+      border-radius: 5px;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 12px;
+      background-color: #24e437;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .login-button:hover {
+      background-color: #24e437;
+    }
+
+    .form-links {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .form-link {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .form-links a {
+      color: #24e437;
+      text-decoration: none;
+    }
+
+    .form-links a:hover {
+      text-decoration: underline;
+    }
+
+    
+
+    
+    .line-separator {
+      margin: 20px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    /* Style for the error message container */
+    .error-container {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    /* Style for the error message */
+    .error-message {
+      font-weight: bold;
+    }
+    .mat-h2, .mat-headline-6, .mat-typography .mat-h2, .mat-typography .mat-headline-6, .mat-typography h2 {
+      font: 500 20px / 32px Roboto, sans-serif;
+      letter-spacing: .0125em;
+      margin: 0 0 16px;
+      color: #24e437;
+  }label {
+    cursor: default;
+    color: black;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.left-panel {
+  width: 40%;
+  margin-left: 10%;
+  margin-bottom: 10%;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.left-panel h2 {
+  font-size: 24px;
+  color: #24e437;
+  margin-bottom: 10px;
+}
+
+.left-panel p {
+  font-size: 16px;
+  color: #333;
+}
+  
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 50px 0;
+  bottom: 10px;
+  
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 20px;
+}
+
+.footer-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-section p {
+  font-size: 14px;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #24e437;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #24e437;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #777;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h2>Bienvenue sur le projet de fruits et légumes</h2>
+      <p>Connectez-vous pour accéder à votre compte.</p>
+    </div>
+  <div class="right-container">
+    <h2>Connexion</h2>
+    <form (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="login">Login:</label>
+        <input type="text" id="login" name="login" class="form-input" [(ngModel)]="loginData.login" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" class="form-input" [(ngModel)]="loginData.password" required>
+      </div>
+      <button type="submit" class="login-button">Se connecter</button>
+    </form>
+    <div class="line-separator"></div>
+   
+  </div>
+</div>  
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Projet Fruits et Légumes</h3>
+      <p>
+        "Découvrez la fraîcheur à son apogée avec notre magasin de fruits et légumes. Gestion de stock efficace et facturation transparente pour une expérience de shopping sans tracas."
+      </p>
+    </div>
+    <div class="footer-section">
+      <h3>Contactez-nous</h3>
+      <ul>
+        <li>Phone: 20705730</li>
+        <li>Email: fruits-legumes&#64;yahoo.com</li>
+        <li>Adresse: 123 Rue des Fruits, Ville, Pays</li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Liens utiles</h3>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Produits</a></li>
+        <li><a href="#">Promotions</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <div class="contact-form">
+        <form>
+          <input type="email" name="email" class="contact-input" placeholder="Votre e-mail" required>
+          <input type="submit" value="S'abonner" class="btn">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Projet Fruits et Légumes. Tous droits réservés.</p>
+  </div>
+</footer>
+</body>
+</html>
+

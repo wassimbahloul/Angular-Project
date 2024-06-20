@@ -1,0 +1,56 @@
+<app-layout></app-layout>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let facture of factures">
+      <div class="card text-center">
+        <div class="card-header">
+          <h5 class="card-title" style="font-size: 24px;">{{ facture._id }}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Total Solde: {{ facture.totalAmount }} DT</p>
+          <p class="card-text">Total Quantité: {{ facture.totalWeight }} kg</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .card {
+    margin-bottom: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 13%;
+  }
+  
+  .card-header {
+    background-color: rgb(36, 228, 55);
+    border-bottom: 1px solid #dcdcdc;
+    padding: 10px; /* Ajout d'un padding pour espacer le contenu du haut et du bas */
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-title {
+    margin-bottom: 0;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+</style>

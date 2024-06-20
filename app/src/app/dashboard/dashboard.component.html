@@ -1,0 +1,51 @@
+<app-layout></app-layout>
+
+
+<div class="chart-wrapper" style="width: 300px; display: inline-block;">
+        <canvas baseChart
+                [type]="'pie'"
+                [datasets]="pieChartData"
+                [labels]="pieChartLabels"
+                [options]="pieChartOptions"
+                style="width: 100%; height: 200px;">
+        </canvas>
+    </div>
+    
+    <div class="chart-wrapper" style="width: 400px; display: inline-block; margin-top: 20px;">
+        <canvas baseChart
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                chartType="line"
+                style="width: 100%; height: 200px;">
+        </canvas>
+    </div>
+    
+    <div class="chart-wrapper" style="width: 400px; display: inline-block; margin-top: 20px;">
+        <canvas baseChart
+                [type]="'line'"
+                [datasets]="vegetableChartData"
+                [labels]="vegetableChartLabels"
+                [options]="lineChartOptions"
+                style="width: 100%; height: 200px;">
+        </canvas>
+    </div>
+    
+    <div class="chart-wrapper" style="width: 400px; display: inline-block; margin-top: 20px;">
+        <canvas baseChart
+                [type]="'line'"
+                [datasets]="employeeAmountChartData"
+                [labels]="employeeAmountChartLabels"
+                style="width: 100%; height: 200px;">
+        </canvas>
+    </div>
+    
+    <div class="chart-wrapper" style="width: 400px; display: inline-block; margin-top: 20px;">
+        <canvas baseChart
+                [type]="'line'"
+                [datasets]="employeeWeightChartData"
+                [labels]="employeeWeightChartLabels"
+                style="width: 100%; height: 200px;">
+        </canvas>
+    </div>
+    

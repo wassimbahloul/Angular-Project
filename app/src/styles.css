@@ -1,0 +1,21 @@
+
+html {
+    --mat-sidenav-container-divider-color: rgba(255, 255, 255, 0.12);
+    --mat-sidenav-container-background-color: #424242;
+    --mat-sidenav-container-text-color: white;
+    --mat-sidenav-content-background-color: #ffffff;
+    --mat-sidenav-content-text-color: black;
+    --mat-sidenav-scrim-color: rgba(189, 189, 189, 0.6);
+  }.mat-drawer-container {
+    position: relative;
+    z-index: 1;
+    color: var(--mat-sidenav-content-text-color);
+    background-color: var(--mat-sidenav-content-background-color);
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    overflow: hidden;
+    
+  }
+  
+  

@@ -1,0 +1,18 @@
+const mongoose = require('mongoose');
+
+// Définir le schéma de Fruit
+const EmployeetSchema = new mongoose.Schema({
+    name: String,
+    address:String,
+    tele:Number,
+    salaire:Number,
+    login: String,
+    password: String,
+    
+});
+
+// Créer un modèle à partir du schéma de Fruit
+const Employee = mongoose.model('Employee', EmployeetSchema);
+
+// Exporter le modèle Fruit
+module.exports = Employee;

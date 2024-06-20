@@ -1,0 +1,94 @@
+<app-layout></app-layout>
+<html>
+    <body>
+        <div fxLayout="row" fxLayoutAlign="end center">
+          <button routerLink="/createlegume" class="btn btn-primary">Create new</button>
+        </div>
+        <head>
+          <!-- Autres balises head -->
+        
+          <!-- Importer Bootstrap CSS depuis un CDN -->
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+         <!-- Bootstrap icons-->
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+          <!-- Autres importations de fichiers CSS -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        </head>
+        
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+          <ng-container *ngFor="let row of dataSourceChunked">
+            <div class="col mb-5" *ngFor="let legume of row">
+              <div class="card h-100">
+                <img class="card-img-top" [src]="legume.image" alt="Image du légume">
+                <div class="card-body p-4">
+                  <div class="text-center">
+                    <h5 class="fw-bolder">{{ legume.name }}</h5>
+           
+                    <p>Quantity: {{ legume.quantity }} kgm</p>
+                    <p>Price per Kilogram: {{ legume.prix_kilo }}</p>
+                  </div>
+                </div>
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div class="text-center">
+                    <a class="btn btn-outline-dark mt-auto" [routerLink]="'/legumes/' + legume._id + '/editlegume'">
+                      <mat-icon>edit</mat-icon>Edit
+                    </a>
+                    <button class="btn btn-outline-dark mt-auto" (click)="ondelete(legume._id)">
+                      <mat-icon style="color: rgb(236, 22, 22);">delete</mat-icon>Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        
+          
+        </body><style>
+
+/* Réduire la taille des cartes */
+.card {
+  margin: 10px 10px 10px 10px;
+  width: 300px;
+  height: 400px; /* Largeur maximale des cartes */
+  background-color: #d2cfdb4e; /* Couleur d'arrière-plan de la carte */
+  border: 1px solid #c6c4cc4e; /* Bordure de la carte */
+  border-radius: 0.9rem; 
+}
+
+.card-img-top {
+  max-height: 150px; /* Hauteur maximale de l'image */
+}
+
+.card-body {
+  padding: 1rem; /* Ajustement du remplissage à l'intérieur de la carte */
+}
+
+.card-footer {
+  padding: 0.75rem 1rem; /* Ajustement du remplissage du pied de la carte */
+}
+.btn{
+margin: 10px 10px 10px 10px;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color: #ECF0F1; /* Couleur d'arrière-plan argentée pour un look moderne */
+  font-family: Arial, sans-serif; /* Police plus moderne */
+}
+.card {
+  margin: 10px 10px 10px 10px;
+  width: 300px;
+  height: 400px; /* Largeur maximale des cartes */
+  background-color: #5434bd4e; /* Couleur d'arrière-plan de la carte */
+  border: 1px solid #410dee4e; /* Bordure de la carte */
+  border-radius: 0.9rem; 
+}
+
+/* Le reste de votre CSS ici */
+
+/* Le reste de votre CSS ici */
+
+</style>
+
+</html>

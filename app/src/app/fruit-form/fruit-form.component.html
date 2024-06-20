@@ -1,0 +1,128 @@
+<app-layout></app-layout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #F0F3F4 ; /* Background color is set to light grey */
+  }
+
+  .main-container {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center; /* Align the content to the center */
+  }
+
+  .container {
+    display: flex;
+    background: #f8f9f9 ; /* Background color of the form */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for the form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    width: 40%; /* Augmenter la largeur du conteneur blanc */
+    margin: 0 auto; /* Centrer le conteneur sur la page */
+  }
+  
+  .profile-circle{
+    width: 150px;
+    height: 150px;
+    border-radius: 0%;
+    background-size: cover;
+    background-position: center;
+    margin-left: 40%;
+  animation: floatAnimation 2s infinite alternate; /* Animation pour le mouvement de haut en bas */
+}
+
+@keyframes floatAnimation {
+  0% {
+    background-position: center 20px; /* Position initiale */
+  }
+  100% {
+    background-position: center -20px; /* Position finale */
+  }
+}
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+ 
+  label {
+    display: block;
+    margin-bottom: 5px;
+   color: #000000;
+}
+  input[type="text"],
+  input[type="number"],
+  input[type="url"] {
+    width: 180%; /* Input takes the full width */
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+  }
+
+  button[type="submit"] {
+    width: 193%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2088FF;
+    color: white;
+    cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+    color: blue; /* Darken the button on hover */
+  }
+
+</style>
+</head><body>
+  <div class="main-container">
+    <div class="container">
+      <div class="form-section">
+        <!-- Ajoutez l'attribut (ngSubmit) pour lier la méthode onsub() -->
+        <form [formGroup]="form" (ngSubmit)="onsub()">
+          <!-- Le reste du formulaire reste inchangé -->
+          <div class="form-group mb-3">
+            
+            <input type="text" formControlName="name" class="form-control" hidden/>
+          </div>
+          <div class="form-group mb-3">
+            <label>Name</label>
+            <input type="text" formControlName="name" class="form-control" placeholder="Name"/>
+          </div>
+          <div class="form-group mb-3">
+            <label>Quantity</label>
+            <input type="number" formControlName="quantity" class="form-control" placeholder="Quantity"/>
+          </div>
+          <div class="form-group mb-3">
+            <label>Prix/kilo</label>
+            <input type="number" formControlName="prix_kilo" class="form-control" placeholder="Prix_kilo" />
+          </div>
+          <div class="form-group mb-3">
+            <label>Image URL</label>
+            <!-- Utilisez formControlName pour lier cet input au champ image du formulaire -->
+            <input type="url" formControlName="image" class="form-control" placeholder="entrer url image"/>
+          </div>
+          <div class="form-group mb-3">
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+          </div>
+        </form>
+      </div>
+      <!-- Utilisez la liaison de propriété pour mettre à jour dynamiquement l'URL de l'image -->
+      <div class="profile-circle" *ngIf="form.get('image')?.value; else defaultImage" [ngStyle]="{'background-image': 'url(' + form.get('image')?.value + ')'}"></div>
+
+        <ng-template #defaultImage>
+          <!-- Image par défaut à afficher si l'URL est vide -->
+          <div class="profile-circle" style="background-image: url('https://img.freepik.com/free-vector/fruit-shop-with-fruit-logo-cartoon-style-isolated_1308-47337.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1711497600&semt=ais');"></div>
+        </ng-template>
+    </div>
+  </div>
+</body>
+</html>

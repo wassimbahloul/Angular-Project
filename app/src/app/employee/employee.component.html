@@ -1,0 +1,78 @@
+<!-- Bouton pour créer un nouvel employé -->
+<app-layout></app-layout>
+<html>
+<div fxLayout="row" fxLayoutAlign="end center">
+    <button routerLink="/createemploye">Create New</button>
+  </div>
+  
+  <!-- Tableau pour afficher les employés -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+  
+    <!-- Définition des colonnes -->
+    <!-- Chaque ng-container matColumnDef correspond à une colonne -->
+    
+  
+    <ng-container matColumnDef="2">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let employee"> {{ employee.name }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="3">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let employee"> {{ employee.address }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="4">
+      <th mat-header-cell *matHeaderCellDef> Telephone </th>
+      <td mat-cell *matCellDef="let employee"> {{ employee.tele }} </td>
+    </ng-container>
+   
+    <ng-container matColumnDef="5">
+      <th mat-header-cell *matHeaderCellDef> salaire </th>
+      <td mat-cell *matCellDef="let employee"> {{ employee.salaire }} dinars </td>
+    </ng-container>
+    <!-- Définition des actions -->
+    <ng-container matColumnDef="6">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let employee">
+        <!-- Boutons pour éditer et supprimer un employé -->
+     <button>  <a class="btn btn-outline-dark mt-auto" [routerLink]="'/employees/' + employee._id + '/editemployee'">
+          <mat-icon>edit</mat-icon>
+        </a></button> 
+        <button (click)="onDelete(employee._id)" mat-fab color="primary" aria-label="Delete">
+          <mat-icon style="color: red;">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+  
+    <!-- Définition des rangées du tableau -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </html>
+  <style>
+
+.mat-icon {
+    -webkit-user-select: none;
+    user-select: none;
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    background-color: darkgray; 
+}
+
+button {
+background-color: darkgray;
+}
+html {
+    --mat-sidenav-container-divider-color: rgba(255, 255, 255, 0.12);
+    --mat-sidenav-container-background-color: #424242;
+    --mat-sidenav-container-text-color: white;
+    --mat-sidenav-content-background-color: #ffffff;
+    --mat-sidenav-content-text-color: #ffffff;
+    --mat-sidenav-scrim-color: rgba(189, 189, 189, 0.6);
+}
+  </style>

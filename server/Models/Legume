@@ -1,0 +1,15 @@
+const mongoose = require('mongoose');
+
+// Définir le schéma de Fruit
+const LegumeSchema = new mongoose.Schema({
+    name: String,
+    quantity: String,
+    prix_kilo: Number,
+    image: { type: String, required: true } // Assuming you're storing image URLs as strings
+});
+
+
+const Legume = mongoose.model('Legume', LegumeSchema);
+
+// Exporter le modèle Fruit
+module.exports = Legume;

@@ -1,0 +1,126 @@
+<app-layout1></app-layout1>
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Autres balises head -->
+  <!-- Importer Bootstrap CSS depuis un CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap icons-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Autres importations de fichiers CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* Votre CSS ici */
+    /* Réduire la taille des cartes */
+    .card {
+      margin: 10px 10px 10px 10px;
+      width: 300px;
+      height: 400px; /* Largeur maximale des cartes */
+      background-color: #d2cfdb4e; /* Couleur d'arrière-plan de la carte */
+      border: 1px solid #c6c4cc4e; /* Bordure de la carte */
+      border-radius: 0.9rem; 
+    }
+    .card-img-top {
+      max-height: 150px; /* Hauteur maximale de l'image */
+    }
+    .card-body {
+      padding: 1rem; /* Ajustement du remplissage à l'intérieur de la carte */
+    }
+    .card-footer {
+      padding: 0.75rem 1rem; /* Ajustement du remplissage du pied de la carte */
+    }
+    .btn {
+      margin: 10px 10px 10px 10px;
+    }
+    body, html {
+      height: 100%;
+      margin: 0;
+      background-color: #ECF0F1; /* Couleur d'arrière-plan argentée pour un look moderne */
+      font-family: Arial, sans-serif; /* Police plus moderne */
+    }
+    .fruit-section {
+      margin-bottom: 20px; /* Ajout d'un espace entre les sections de fruits et de légumes */
+    }
+    .title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    html {
+    --mat-sidenav-container-divider-color: rgba(255, 255, 255, 0.12);
+    --mat-sidenav-container-background-color: #424242;
+    --mat-sidenav-container-text-color: white;
+    --mat-sidenav-content-background-color: #ECF0F1;
+    --mat-sidenav-content-text-color: #ECF0F1;
+    --mat-sidenav-scrim-color: rgba(189, 189, 189, 0.6);
+}
+
+  </style>
+</head>
+<body>
+   
+  
+  <div class="container">
+    <!-- Section des fruits -->
+    <div class="fruit-section">
+      <div class="title">Fruits</div>
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <ng-container *ngFor="let row of fruitDataSourceChunked">
+          <div class="col mb-5" *ngFor="let fruit of row">
+            <div class="card h-100">
+              <img class="card-img-top" [src]="fruit.image" alt="Image du fruit">
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <h5 class="fw-bolder">{{ fruit.name }}</h5>
+                  <p>Quantity: {{ fruit.quantity }} kgm</p>
+                  <p>Price per Kilogram: {{ fruit.prix_kilo }}</p>
+                </div>
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center">
+                     
+                      <button class="btn btn-outline-dark mt-auto"  (click)="addToCart(fruit)">
+                        <mat-icon style="color: rgb(22, 108, 236);" >add</mat-icon>ajouter panier
+                      </button>
+                    </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    
+    <!-- Séparation entre les sections des fruits et des légumes -->
+    <hr style="border-top: 1px solid #000; margin: 20px 0;">
+    
+    <!-- Section des légumes -->
+    <div class="vegetable-section">
+      <div class="title">Légumes</div>
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <ng-container *ngFor="let row of vegetableDataSourceChunked">
+          <div class="col mb-5" *ngFor="let vegetable of row">
+            <div class="card h-100">
+              <img class="card-img-top" [src]="vegetable.image" alt="Image du légume">
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <h5 class="fw-bolder">{{ vegetable.name }}</h5>
+                  <p>Quantity: {{ vegetable.quantity }} kgm</p>
+                  <p>Price per Kilogram: {{ vegetable.prix_kilo }}</p>
+                </div>
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center">
+                     
+                      <button class="btn btn-outline-dark mt-auto" (click)="addToCart(vegetable)" >
+                        <mat-icon style="color: rgb(22, 108, 236);">add</mat-icon>ajouter panier
+                      </button>
+                    </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
